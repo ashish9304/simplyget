@@ -1,0 +1,13 @@
+@echo off
+cd /d "%~dp0"
+title Frontend Client
+
+echo Killing any existing flutter processes...
+taskkill /F /IM dart.exe /T >nul 2>&1
+
+echo Starting Client (Flutter)...
+echo Fetching dependencies...
+call flutter pub get
+echo Running app on Chrome (Port 8080)...
+echo Open http://localhost:8080 in your browser if it doesn't open automatically.
+flutter run -d chrome --web-hostname=127.0.0.1 --web-port=8080
